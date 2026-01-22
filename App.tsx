@@ -86,7 +86,7 @@ const PainPoints: React.FC = () => {
   const points = [
     {
       icon: <Clock className="w-8 h-8 text-[#D4AF37]" />,
-      title: "Tempo Sprecatp",
+      title: "Tempo Sprecato",
       desc: "Il 60% dei task amministrativi può essere automatizzato, ma le PMI continuano a gestirli manualmente."
     },
     {
