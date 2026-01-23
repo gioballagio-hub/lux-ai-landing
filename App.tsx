@@ -23,7 +23,7 @@ const CALENDLY_URL = "https://calendly.com/aixum-info/30min";
 const LogoBrand: React.FC<{ size?: 'sm' | 'md' }> = ({ size = 'md' }) => (
   <div className="flex items-center">
     <img 
-      src="/AIXUM_Logo.jpeg" 
+      src="/logo.jpeg" 
       alt="AIXUM - Italian AI Solutions"
       className={`${size === 'sm' ? 'h-8' : 'h-12'} w-auto object-contain`}
     />
