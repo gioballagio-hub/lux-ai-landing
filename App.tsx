@@ -13,6 +13,9 @@ import {
   Bot
 } from 'lucide-react';
 
+// URL di conversione centralizzato
+const CALENDLY_URL = "https://calendly.com/aixum-info/30min";
+
 // --- Header Component ---
 const Header: React.FC = () => {
   return (
@@ -29,7 +32,12 @@ const Header: React.FC = () => {
         <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-400">
           <a href="#soluzione" className="hover:text-[#D4AF37] transition-colors">Soluzione</a>
           <a href="#moduli" className="hover:text-[#D4AF37] transition-colors">Corsi</a>
-          <a href="#contatti" className="px-5 py-2.5 gold-gradient text-black rounded-full font-bold gold-glow transition-all">
+          <a 
+            href={CALENDLY_URL} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="px-5 py-2.5 gold-gradient text-black rounded-full font-bold gold-glow transition-all"
+          >
             Prenota Consulenza
           </a>
         </nav>
@@ -58,12 +66,20 @@ const Hero: React.FC = () => {
           Trasformiamo processi obsoleti in vantaggi competitivi misurabili. Percorsi formativi d'élite progettati esclusivamente per il tessuto imprenditoriale italiano.
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <button className="w-full sm:w-auto px-10 py-5 gold-gradient text-black rounded-xl font-extrabold text-lg gold-glow transition-all flex items-center justify-center gap-3">
+          <a 
+            href={CALENDLY_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full sm:w-auto px-10 py-5 gold-gradient text-black rounded-xl font-extrabold text-lg gold-glow transition-all flex items-center justify-center gap-3"
+          >
             Prenota la tua Consulenza <ArrowRight size={20} />
-          </button>
-          <button className="w-full sm:w-auto px-10 py-5 glass-card gold-border rounded-xl font-bold text-lg hover:bg-white/5 transition-all">
+          </a>
+          <a 
+            href="#moduli"
+            className="w-full sm:w-auto px-10 py-5 glass-card gold-border rounded-xl font-bold text-lg hover:bg-white/5 transition-all flex items-center justify-center"
+          >
             Scopri i Percorsi
-          </button>
+          </a>
         </div>
         
         {/* Social Proof Placeholder */}
@@ -220,9 +236,14 @@ const Modules: React.FC = () => {
                   </li>
                 ))}
               </ul>
-              <button className={`w-full py-4 rounded-xl font-bold transition-all ${c.popular ? 'gold-gradient text-black gold-glow' : 'glass-card gold-border text-white hover:bg-white/5'}`}>
+              <a 
+                href={CALENDLY_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`block text-center w-full py-4 rounded-xl font-bold transition-all ${c.popular ? 'gold-gradient text-black gold-glow' : 'glass-card gold-border text-white hover:bg-white/5'}`}
+              >
                 Scopri Dettagli
-              </button>
+              </a>
             </div>
           ))}
         </div>
@@ -243,9 +264,14 @@ const FinalCTA: React.FC = () => {
         <p className="text-gray-400 text-lg mb-12 max-w-2xl mx-auto leading-relaxed">
           Le candidature per il trimestre Q4 sono aperte. Selezioniamo solo 10 PMI ogni 3 mesi per garantire la massima qualità della formazione e dell'integrazione tecnologica.
         </p>
-        <button className="px-12 py-6 gold-gradient text-black rounded-2xl font-extrabold text-xl gold-glow hover:scale-105 transition-all flex items-center justify-center gap-3 mx-auto">
+        <a 
+          href={CALENDLY_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="px-12 py-6 gold-gradient text-black rounded-2xl font-extrabold text-xl gold-glow hover:scale-105 transition-all flex items-center justify-center gap-3 mx-auto max-w-md"
+        >
           Inizia Ora <ChevronRight />
-        </button>
+        </a>
         <p className="mt-8 text-sm text-gray-500 font-medium">Consulenza gratuita di 30 minuti inclusa.</p>
       </div>
     </section>
