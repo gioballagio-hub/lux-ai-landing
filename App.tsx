@@ -21,36 +21,12 @@ const CALENDLY_URL = "https://calendly.com/aixum-info/30min";
 // Nota: Sostituisci questo URL con il percorso del tuo file logo se caricato localmente
 // Per ora usiamo una rappresentazione stilizzata coerente con l'immagine fornita
 const LogoBrand: React.FC<{ size?: 'sm' | 'md' }> = ({ size = 'md' }) => (
-  <div className="flex items-center gap-3">
-    <div className={`${size === 'sm' ? 'w-8 h-8' : 'w-10 h-10'} relative flex items-center justify-center`}>
-      {/* Icona triangolare che richiama il logo AIXUM */}
-      <svg viewBox="0 0 100 100" className="w-full h-full drop-shadow-[0_0_8px_rgba(212,175,55,0.4)]">
-        <defs>
-          <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#D4AF37" />
-            <stop offset="100%" stopColor="#F9A602" />
-          </linearGradient>
-        </defs>
-        <path 
-          d="M50 15 L85 85 L15 85 Z M50 35 L70 75 L30 75 Z" 
-          fill="url(#goldGrad)" 
-        />
-        <path 
-          d="M20 70 L80 50" 
-          stroke="url(#goldGrad)" 
-          strokeWidth="4" 
-          strokeLinecap="round"
-        />
-      </svg>
-    </div>
-    <div className="flex flex-col leading-tight">
-      <span className={`${size === 'sm' ? 'text-lg' : 'text-2xl'} font-display font-black tracking-widest uppercase text-white`}>
-        AIXUM
-      </span>
-      <span className="text-[8px] md:text-[10px] uppercase tracking-[0.2em] text-[#D4AF37] font-bold">
-        Italian AI Solutions
-      </span>
-    </div>
+  <div className="flex items-center">
+    <img 
+      src="/AIXUM_Logo.jpeg" 
+      alt="AIXUM - Italian AI Solutions"
+      className={`${size === 'sm' ? 'h-8' : 'h-12'} w-auto object-contain`}
+    />
   </div>
 );
 
