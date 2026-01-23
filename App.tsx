@@ -1,7 +1,6 @@
 
 import React, { useState } from 'react';
 import { 
-  Cpu, 
   TrendingUp, 
   Clock, 
   Settings, 
@@ -19,32 +18,48 @@ import {
 // URL di conversione centralizzato
 const CALENDLY_URL = "https://calendly.com/aixum-info/30min";
 
-// --- Types ---
-interface Course {
-  id: string;
-  title: string;
-  subtitle: string;
-  features: string[];
-  fullDescription: string;
-  outcomes: string[];
-  techStack: string[];
-  icon: React.ReactNode;
-  popular: boolean;
-}
+// Nota: Sostituisci questo URL con il percorso del tuo file logo se caricato localmente
+// Per ora usiamo una rappresentazione stilizzata coerente con l'immagine fornita
+const LogoBrand: React.FC<{ size?: 'sm' | 'md' }> = ({ size = 'md' }) => (
+  <div className="flex items-center gap-3">
+    <div className={`${size === 'sm' ? 'w-8 h-8' : 'w-10 h-10'} relative flex items-center justify-center`}>
+      {/* Icona triangolare che richiama il logo AIXUM */}
+      <svg viewBox="0 0 100 100" className="w-full h-full drop-shadow-[0_0_8px_rgba(212,175,55,0.4)]">
+        <defs>
+          <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#D4AF37" />
+            <stop offset="100%" stopColor="#F9A602" />
+          </linearGradient>
+        </defs>
+        <path 
+          d="M50 15 L85 85 L15 85 Z M50 35 L70 75 L30 75 Z" 
+          fill="url(#goldGrad)" 
+        />
+        <path 
+          d="M20 70 L80 50" 
+          stroke="url(#goldGrad)" 
+          strokeWidth="4" 
+          strokeLinecap="round"
+        />
+      </svg>
+    </div>
+    <div className="flex flex-col leading-tight">
+      <span className={`${size === 'sm' ? 'text-lg' : 'text-2xl'} font-display font-black tracking-widest uppercase text-white`}>
+        AIXUM
+      </span>
+      <span className="text-[8px] md:text-[10px] uppercase tracking-[0.2em] text-[#D4AF37] font-bold">
+        Italian AI Solutions
+      </span>
+    </div>
+  </div>
+);
 
 // --- Header Component ---
 const Header: React.FC = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-[#0a0a0a]/80 backdrop-blur-md border-b border-white/5">
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <div className="w-10 h-10 gold-gradient rounded-lg flex items-center justify-center">
-            <Cpu className="text-black w-6 h-6" />
-          </div>
-          <span className="text-xl font-display font-bold tracking-tighter uppercase">
-            Lux<span className="gold-text-gradient">AI</span> Academy
-          </span>
-        </div>
+        <LogoBrand />
         <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-400">
           <a href="#soluzione" className="hover:text-[#D4AF37] transition-colors">Soluzione</a>
           <a href="#moduli" className="hover:text-[#D4AF37] transition-colors">Corsi</a>
@@ -102,6 +117,18 @@ const Hero: React.FC = () => {
 };
 
 // --- Course Detail Modal ---
+interface Course {
+  id: string;
+  title: string;
+  subtitle: string;
+  features: string[];
+  fullDescription: string;
+  outcomes: string[];
+  techStack: string[];
+  icon: React.ReactNode;
+  popular: boolean;
+}
+
 const CourseModal: React.FC<{ course: Course; onClose: () => void }> = ({ course, onClose }) => {
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-6">
@@ -278,7 +305,6 @@ const Modules: React.FC = () => {
         </div>
       </div>
 
-      {/* Modal Overlay */}
       {selectedCourse && (
         <CourseModal 
           course={selectedCourse} 
@@ -288,9 +314,6 @@ const Modules: React.FC = () => {
     </section>
   );
 };
-
-// --- Final CTA & Other Sections ---
-// (Si mantengono le altre sezioni invariate per brevità, solo aggiornato il componente App)
 
 const PainPoints: React.FC = () => {
   return (
@@ -339,9 +362,13 @@ const FinalCTA: React.FC = () => {
 const Footer: React.FC = () => {
   return (
     <footer className="py-12 px-6 border-t border-white/5 bg-[#0a0a0a]">
-      <div className="max-w-7xl mx-auto flex justify-between items-center">
-        <span className="text-lg font-display font-bold uppercase">Lux<span className="gold-text-gradient">AI</span> Academy</span>
-        <p className="text-sm text-gray-600">© {new Date().getFullYear()} All rights reserved.</p>
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+        <LogoBrand size="sm" />
+        <p className="text-sm text-gray-600 order-3 md:order-2">© {new Date().getFullYear()} AIXUM. All rights reserved.</p>
+        <div className="flex gap-6 text-sm text-gray-500 order-2 md:order-3">
+          <a href="#" className="hover:text-[#D4AF37]">Privacy</a>
+          <a href="#" className="hover:text-[#D4AF37]">LinkedIn</a>
+        </div>
       </div>
     </footer>
   );
