@@ -199,15 +199,15 @@ const Modules: React.FC = () => {
       id: "auto",
       title: "Analisi Vendite",
       subtitle: "Il Futuro Operativo",
-      features: ["Chat GPT", "Claude", "Gamma"],
-      fullDescription: "Analizza i tuoi dati di vendita e realizza strategie d'azioni efficaci e costruite su misura per la tua attività.",
+      features: ["Analisi dati", "Redazione report", "Presentazione risultati"],
+      fullDescription: "Analizza i tuoi dati di vendita e realizza strategie d'azione efficaci e costruite su misura per la tua attività.",
       outcomes: [
         "Analisi aggregata comportamento clienti",
         "Analisi comportamento specifico cliente",
         "Definizione di una strategia completa",
         "Definizione timing piano d'azione"
       ],
-      techStack: ["Make.com", "Zapier", "OpenAI Assistant API", "AirTable", "LangChain"],
+      techStack: ["Chat GPT", "Claude", "Gamma"],
       icon: <Settings size={24} />,
       popular: false
     },
@@ -215,7 +215,7 @@ const Modules: React.FC = () => {
       id: "gen",
       title: "Processi Vendita Efficienti",
       subtitle: "Creatività Scalabile",
-      features: ["Strategie di Prompting", "Content Marketing Automizzato", "Deep Data Analysis"],
+      features: ["Strategie di Prompting", "Content Marketing Avanzato", "Deep Data Analysis"],
       fullDescription: "Impara a utilizzare l'AI generativa non come un giocattolo, ma come un moltiplicatore di output per il marketing, le vendite e la ricerca.",
       outcomes: [
         "Produzione contenuti 10x più veloce",
@@ -249,7 +249,7 @@ const Modules: React.FC = () => {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-display font-bold mb-6">Percorsi di <span className="gold-text-gradient">Alta Formazione</span></h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">Scegli il modulo più adatto alla fase di crescita della tua azienda. Ogni corso include sessioni di consulenza 1-to-1.</p>
+          <p className="text-gray-400 max-w-2xl mx-auto">Scegli il modulo più adatto alla fase di crescita della tua azienda. Ogni corso include sessioni di consulenza in presenza.</p>
         </div>
         <div className="grid md:grid-cols-3 gap-8">
           {courses.map((c) => (
