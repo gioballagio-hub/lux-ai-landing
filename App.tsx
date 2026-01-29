@@ -197,14 +197,15 @@ const Modules: React.FC = () => {
   const courses: Course[] = [
     {
       id: "auto",
-      title: "AI & Automazione",
+      title: "Analisi Vendite",
       subtitle: "Il Futuro Operativo",
-      features: ["Workflow con Zapier/Make", "Customer Service via AI", "Automazione Documentale"],
-      fullDescription: "Elimina i colli di bottiglia operativi integrando agenti intelligenti che lavorano 24/7 sui processi ripetitivi della tua azienda.",
+      features: ["Chat GPT", "Claude", "Gamma"],
+      fullDescription: "Analizza i tuoi dati di vendita e realizza strategie d'azioni efficaci e costruite su misura per la tua attività.",
       outcomes: [
-        "Risparmio stimato di 15 ore settimanali/persona",
-        "Zero errori nel data-entry amministrativo",
-        "Supporto clienti istantaneo via LLM custom"
+        "Analisi aggregata comportamento clienti",
+        "Analisi comportamento specifico cliente",
+        "Definizione di una strategia completa",
+        "Definizione timing piano d'azione"
       ],
       techStack: ["Make.com", "Zapier", "OpenAI Assistant API", "AirTable", "LangChain"],
       icon: <Settings size={24} />,
@@ -212,31 +213,32 @@ const Modules: React.FC = () => {
     },
     {
       id: "gen",
-      title: "Generative AI Business",
+      title: "Processi Vendita Efficienti",
       subtitle: "Creatività Scalabile",
-      features: ["Strategie di Prompting d'Elite", "Content Marketing Automizzato", "Deep Data Analysis"],
+      features: ["Strategie di Prompting", "Content Marketing Automizzato", "Deep Data Analysis"],
       fullDescription: "Impara a utilizzare l'AI generativa non come un giocattolo, ma come un moltiplicatore di output per il marketing, le vendite e la ricerca.",
       outcomes: [
         "Produzione contenuti 10x più veloce",
+        "Risparmio stimato di 7,2 ore settimanali/persona",
         "Analisi predittiva dei trend di mercato",
         "Creazione di prototipi e materiali marketing in real-time"
       ],
-      techStack: ["ChatGPT Plus", "Claude 3", "Midjourney", "Perplexity Pro", "Custom GPTs"],
+      techStack: ["ChatGPT", "Claude", "Agenti AI"],
       icon: <Bot size={24} />,
       popular: true
     },
     {
       id: "strat",
-      title: "Strategia & Leadership",
+      title: "Tutoring",
       subtitle: "Visione Esecutiva",
-      features: ["Compliance & Etica AI", "Business Model Innovation", "Change Management"],
-      fullDescription: "Per imprenditori e manager che devono guidare la transizione. Capire dove investire, come gestire il team e come proteggere i dati aziendali.",
+      features: ["Applicazione prompt", "Mindset AI", "Creazione promt"],
+      fullDescription: "Per studenti che desiderano verificare e migliorare la corretta applicazione dell'AI. Verificare, capire dove migliorare e come ragionare per utilizzare al meglio l'AI.",
       outcomes: [
-        "Roadmap di implementazione AI a 12 mesi",
-        "Certificazione etica e compliance GDPR",
-        "Framework di valutazione ROI per tool AI"
+        "Supervisione nell'utilizzo degli strumenti",
+        "Sessione di risposta alle domande",
+        "Assegnazione di esercizi/test da svolgere per applicare le nozioni apprese"
       ],
-      techStack: ["AI Roadmap Canvas", "Risk Assessment Framework", "Cost-Benefit Analysis", "Governance Policy Templates"],
+      techStack: ["Chat GPT", "Claude", "Notebook LLM"],
       icon: <BarChart3 size={24} />,
       popular: false
     }
