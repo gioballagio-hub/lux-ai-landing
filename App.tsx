@@ -25,7 +25,7 @@ const LogoBrand: React.FC<{ size?: 'sm' | 'md' }> = ({ size = 'md' }) => (
     <img 
       src="/logo_AIXUM_senza_sfondo.png" 
       alt="AIXUM - Italian AI Solutions"
-      className={`${size === 'sm' ? 'h-20 md:h-22' : 'h-28 md:h-40'} w-auto object-contain`}
+      className={`${size === 'sm' ? 'h-26 md:h-28' : 'h-28 md:h-40'} w-auto object-contain`}
     />
   </div>
 );
