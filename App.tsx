@@ -21,7 +21,7 @@ const CALENDLY_URL = "https://calendly.com/aixum-info/30min";
 // Nota: Sostituisci questo URL con il percorso del tuo file logo se caricato localmente
 // Per ora usiamo una rappresentazione stilizzata coerente con l'immagine fornita
 const LogoBrand: React.FC<{ size?: 'sm' | 'md' }> = ({ size = 'md' }) => (
-  <div className="flex items-center">
+  <div className="flex items-center mt-2">
     <img 
       src="/logo_AIXUM_senza_sfondo.png" 
       alt="AIXUM - Italian AI Solutions"
