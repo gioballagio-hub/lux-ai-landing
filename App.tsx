@@ -190,6 +190,60 @@ const CourseModal: React.FC<{ course: Course; onClose: () => void }> = ({ course
   );
 };
 
+// --- Privacy Modal ---
+const PrivacyModal: React.FC<{ onClose: () => void }> = ({ onClose }) => {
+  return (
+    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-6">
+      <div 
+        className="absolute inset-0 bg-black/90 backdrop-blur-xl transition-opacity" 
+        onClick={onClose}
+      />
+      <div className="relative w-full max-w-4xl glass-card gold-border rounded-[32px] overflow-hidden max-h-[90vh] flex flex-col">
+        <button 
+          onClick={onClose}
+          className="absolute top-6 right-6 p-2 rounded-full bg-white/5 hover:bg-white/10 transition-colors z-10"
+        >
+          <X size={24} className="text-gray-400" />
+        </button>
+
+        <div className="overflow-y-auto p-8 md:p-12">
+          <h2 className="text-3xl font-display font-bold mb-8">Privacy Policy</h2>
+          
+          <div className="space-y-8 text-gray-400 leading-relaxed">
+            <section>
+              <h3 className="text-white font-bold text-xl mb-3">1. Raccolta dei Dati</h3>
+              <p>AIXUM raccoglie i dati personali forniti volontariamente attraverso il form di contatto e le richieste di consulenza. I dati raccolti includono nome, email, numero di telefono e informazioni aziendali.</p>
+            </section>
+            
+            <section>
+              <h3 className="text-white font-bold text-xl mb-3">2. Utilizzo dei Dati</h3>
+              <p>I dati raccolti vengono utilizzati esclusivamente per rispondere alle richieste di informazioni, fornire i servizi richiesti e inviare comunicazioni relative ai nostri corsi e servizi di consulenza AI.</p>
+            </section>
+            
+            <section>
+              <h3 className="text-white font-bold text-xl mb-3">3. Conservazione e Sicurezza</h3>
+              <p>I dati personali sono conservati in modo sicuro e protetti contro accessi non autorizzati. Implementiamo misure di sicurezza tecniche e organizzative appropriate per proteggere le informazioni.</p>
+            </section>
+            
+            <section>
+              <h3 className="text-white font-bold text-xl mb-3">4. Diritti dell'Utente</h3>
+              <p>Hai il diritto di accedere, rettificare, cancellare i tuoi dati personali o opporti al loro trattamento. Per esercitare questi diritti, contattaci via email.</p>
+            </section>
+            
+            <section>
+              <h3 className="text-white font-bold text-xl mb-3">5. Cookie</h3>
+              <p>Il sito utilizza cookie tecnici necessari per il funzionamento e cookie analitici per migliorare l'esperienza utente. Puoi gestire le preferenze sui cookie nelle impostazioni del browser.</p>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+
+
+
 // --- Course Modules ---
 const Modules: React.FC = () => {
   const [selectedCourse, setSelectedCourse] = useState<Course | null>(null);
@@ -338,17 +392,23 @@ const FinalCTA: React.FC = () => {
 };
 
 const Footer: React.FC = () => {
+  const [showPrivacy, setShowPrivacy] = useState(false);
+
   return (
-    <footer className="py-12 px-6 border-t border-white/5 bg-[#0a0a0a]">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-        <LogoBrand size="sm" />
-        <p className="text-sm text-gray-600 order-3 md:order-2">© {new Date().getFullYear()} AIXUM. All rights reserved.</p>
-        <div className="flex gap-6 text-sm text-gray-500 order-2 md:order-3">
-          <a href="#" className="hover:text-[#D4AF37]">Privacy</a>
-          <a href="#" className="hover:text-[#D4AF37]">LinkedIn</a>
+    <>
+      <footer className="py-12 px-6 border-t border-white/5 bg-[#0a0a0a]">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+          <LogoBrand size="sm" />
+          <p className="text-sm text-gray-600 order-3 md:order-2">© {new Date().getFullYear()} AIXUM. All rights reserved.</p>
+          <div className="flex gap-6 text-sm text-gray-500 order-2 md:order-3">
+            <button onClick={() => setShowPrivacy(true)} className="hover:text-[#D4AF37] cursor-pointer">Privacy</button>
+            <a href="https://linkedin.com/company/aixum" target="_blank" rel="noopener noreferrer" className="hover:text-[#D4AF37]">LinkedIn</a>
+          </div>
         </div>
-      </div>
-    </footer>
+      </footer>
+
+      {showPrivacy && <PrivacyModal onClose={() => setShowPrivacy(false)} />}
+    </>
   );
 };
 
