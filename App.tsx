@@ -66,10 +66,10 @@ const Hero: React.FC = () => {
         </div>
         <h1 className="text-5xl md:text-7xl font-display font-extrabold mb-8 leading-[1.1]">
           Scala la tua PMI con l'AI:<br />
-          <span className="gold-text-gradient italic">Risultati Reali, Non Hype.</span>
+          <span className="gold-text-gradient italic">Risultati Concreti, In Poco Tempo.</span>
         </h1>
         <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
-          Trasformiamo processi obsoleti in vantaggi competitivi misurabili. Percorsi formativi d'élite progettati esclusivamente per il tessuto imprenditoriale italiano.
+          Trasformiamo processi obsoleti in vantaggi competitivi misurabili. Percorsi formativi sull'AI progettati esclusivamente per il tessuto imprenditoriale italiano.
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <a 
@@ -249,7 +249,7 @@ const Modules: React.FC = () => {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-display font-bold mb-6">Percorsi di <span className="gold-text-gradient">Alta Formazione</span></h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">Scegli il modulo più adatto alla fase di crescita della tua azienda. Ogni corso include sessioni di consulenza in presenza.</p>
+          <p className="text-gray-400 max-w-2xl mx-auto">Scegli il modulo più adatto alla fase di crescita della tua azienda.</p> Ogni corso include sessioni di consulenza in presenza.</p>
         </div>
         <div className="grid md:grid-cols-3 gap-8">
           {courses.map((c) => (
@@ -303,7 +303,7 @@ const PainPoints: React.FC = () => {
         </div>
         <div className="grid md:grid-cols-3 gap-8">
           {[
-            { icon: <Clock size={32} className="text-[#D4AF37]" />, title: "Tempo Sprecato", desc: "Il 60% dei task amministrativi può essere automatizzato." },
+            { icon: <Clock size={32} className="text-[#D4AF37]" />, title: "Tempo Sprecato", desc: "Il 60% dei task amministrativi può essere velocizzato." },
             { icon: <TrendingUp size={32} className="text-[#D4AF37]" />, title: "Costi Operativi Alti", desc: "L'AI riduce i costi di gestione fino al 40%." },
             { icon: <Settings size={32} className="text-[#D4AF37]" />, title: "Decisioni Intuitive", desc: "Navigare a vista senza analisi dei dati è un rischio." }
           ].map((p, idx) => (
