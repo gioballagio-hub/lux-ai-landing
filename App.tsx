@@ -249,7 +249,7 @@ const Modules: React.FC = () => {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-display font-bold mb-6">Percorsi di <span className="gold-text-gradient">Alta Formazione</span></h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">Scegli il modulo più adatto alla fase di crescita della tua azienda.</p> Ogni corso include sessioni di consulenza in presenza.</p>
+          <p className="text-gray-400 max-w-2xl mx-auto">Scegli il modulo più adatto alla fase di crescita della tua azienda. Ogni corso include sessioni di consulenza in presenza.</p>
         </div>
         <div className="grid md:grid-cols-3 gap-8">
           {courses.map((c) => (
