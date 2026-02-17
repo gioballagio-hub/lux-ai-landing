@@ -16,7 +16,7 @@ import {
 } from 'lucide-react';
 
 // URL di conversione centralizzato
-const CALENDLY_URL = "https://calendly.com/aixum-info/30min";
+const CALENDLY_URL = "https://calendar.app.google/uokojpnrms98Kerc6";
 
 // Nota: Sostituisci questo URL con il percorso del tuo file logo se caricato localmente
 // Per ora usiamo una rappresentazione stilizzata coerente con l'immagine fornita
