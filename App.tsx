@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   TrendingUp, 
   Clock, 
@@ -12,7 +12,9 @@ import {
   Bot,
   X,
   Target,
-  Layers
+  Layers,
+  ShieldCheck,
+  BarChartHorizontal
 } from 'lucide-react';
 
 // URL di conversione centralizzato
@@ -194,32 +196,62 @@ const PrivacyModal: React.FC<{ onClose: () => void }> = ({ onClose }) => {
         </button>
 
         <div className="overflow-y-auto p-8 md:p-12">
-          <h2 className="text-3xl font-display font-bold mb-8">Privacy Policy</h2>
+          <h2 className="text-3xl font-display font-bold mb-2">Privacy Policy</h2>
+          <p className="text-sm text-gray-500 mb-8">Ultimo aggiornamento: 18 Febbraio 2026</p>
           
           <div className="space-y-8 text-gray-400 leading-relaxed">
             <section>
-              <h3 className="text-white font-bold text-xl mb-3">1. Raccolta dei Dati</h3>
-              <p>AIXUM raccoglie i dati personali forniti volontariamente attraverso il form di contatto e le richieste di consulenza. I dati raccolti includono nome, email, numero di telefono e informazioni aziendali.</p>
+              <h3 className="text-white font-bold text-xl mb-3">Titolare del Trattamento dei Dati</h3>
+              <p>AIXUM di [Nome Cognome Titolare], con sede in [Indirizzo Sede Legale], P.IVA [Partita IVA], email: [Indirizzo Email Contatto].</p>
+            </section>
+
+            <section>
+              <h3 className="text-white font-bold text-xl mb-3">Tipologie di Dati Raccolti</h3>
+              <p>Raccogliamo dati personali per fornire e migliorare i nostri servizi. Le tipologie di dati raccolti includono:</p>
+              <ul className="list-disc pl-6 mt-4 space-y-2">
+                <li><strong className="text-gray-300">Dati di Navigazione:</strong> Indirizzi IP, tipo di browser, orari di accesso e altri parametri relativi al sistema operativo e all'ambiente informatico dell'utente, raccolti tramite cookie o altre tecnologie di tracciamento.</li>
+                <li><strong className="text-gray-300">Dati forniti volontariamente dall'utente:</strong> Nome, cognome, indirizzo email, numero di telefono e informazioni aziendali fornite tramite servizi di terze parti come Calendly per la prenotazione di consulenze.</li>
+              </ul>
             </section>
             
             <section>
-              <h3 className="text-white font-bold text-xl mb-3">2. Utilizzo dei Dati</h3>
-              <p>I dati raccolti vengono utilizzati esclusivamente per rispondere alle richieste di informazioni, fornire i servizi richiesti e inviare comunicazioni relative ai nostri corsi e servizi di consulenza AI.</p>
+              <h3 className="text-white font-bold text-xl mb-3">Finalità e Base Giuridica del Trattamento</h3>
+              <p>I dati sono trattati per le seguenti finalità:</p>
+               <ul className="list-disc pl-6 mt-4 space-y-2">
+                <li><strong className="text-gray-300">Erogazione del servizio:</strong> Per rispondere a richieste di informazioni e gestire le prenotazioni (base giuridica: esecuzione di misure precontrattuali).</li>
+                <li><strong className="text-gray-300">Miglioramento del sito:</strong> Utilizzo di dati aggregati e anonimi per analizzare il traffico e migliorare l'esperienza utente, previo consenso (base giuridica: consenso).</li>
+                <li><strong className="text-gray-300">Adempimenti di legge:</strong> Per obblighi legali e fiscali a cui il Titolare è soggetto.</li>
+              </ul>
+            </section>
+
+            <section>
+              <h3 className="text-white font-bold text-xl mb-3">Cookie Policy</h3>
+              <p>Questo sito utilizza cookie tecnici, necessari al funzionamento, e cookie analitici di terze parti (es. Google Analytics) per raccogliere informazioni in forma aggregata. L'installazione dei cookie non essenziali avviene solo previo tuo esplicito consenso. Puoi gestire o revocare il tuo consenso in qualsiasi momento tramite il pannello "Preferenze Cookie" accessibile dal footer del sito.</p>
+            </section>
+
+            <section>
+              <h3 className="text-white font-bold text-xl mb-3">Comunicazione dei Dati e Terze Parti</h3>
+              <p>I tuoi dati non saranno diffusi. Potranno essere comunicati a fornitori di servizi esterni (es. Calendly per le prenotazioni, fornitori di servizi tecnici, hosting provider) nominati, se necessario, Responsabili del Trattamento. L'elenco aggiornato dei Responsabili potrà sempre essere richiesto al Titolare del Trattamento.</p>
             </section>
             
             <section>
-              <h3 className="text-white font-bold text-xl mb-3">3. Conservazione e Sicurezza</h3>
-              <p>I dati personali sono conservati in modo sicuro e protetti contro accessi non autorizzati. Implementiamo misure di sicurezza tecniche e organizzative appropriate per proteggere le informazioni.</p>
+              <h3 className="text-white font-bold text-xl mb-3">Periodo di Conservazione</h3>
+              <p>I dati sono conservati per il tempo strettamente necessario a conseguire gli scopi per cui sono stati raccolti e nel rispetto delle normative vigenti. I dati per finalità di marketing basate sul consenso sono conservati fino a revoca dello stesso.</p>
             </section>
             
             <section>
-              <h3 className="text-white font-bold text-xl mb-3">4. Diritti dell'Utente</h3>
-              <p>Hai il diritto di accedere, rettificare, cancellare i tuoi dati personali o opporti al loro trattamento. Per esercitare questi diritti, contattaci via email.</p>
-            </section>
-            
-            <section>
-              <h3 className="text-white font-bold text-xl mb-3">5. Cookie</h3>
-              <p>Il sito utilizza cookie tecnici necessari per il funzionamento e cookie analitici per migliorare l'esperienza utente. Puoi gestire le preferenze sui cookie nelle impostazioni del browser.</p>
+              <h3 className="text-white font-bold text-xl mb-3">Diritti dell'Interessato (Artt. 15-22 GDPR)</h3>
+              <p>In qualità di interessato, hai il diritto di:</p>
+               <ul className="list-disc pl-6 mt-4 space-y-2">
+                <li>Ottenere la conferma dell'esistenza o meno di dati personali che ti riguardano.</li>
+                <li>Ottenere l'indicazione dell'origine dei dati, delle finalità e modalità del trattamento.</li>
+                <li>Ottenere l'aggiornamento, la rettificazione o l'integrazione dei dati.</li>
+                <li>Richiedere la cancellazione (diritto all'oblio), la trasformazione in forma anonima o il blocco dei dati trattati in violazione di legge.</li>
+                <li>Opporti, in tutto o in parte, per motivi legittimi, al trattamento dei dati personali che ti riguardano.</li>
+                <li>Revocare il consenso in qualsiasi momento senza pregiudicare la liceità del trattamento basata sul consenso prestato prima della revoca.</li>
+                <li>Proporre reclamo a un'autorità di controllo (Garante per la Protezione dei Dati Personali).</li>
+              </ul>
+              <p className="mt-4">Per esercitare i tuoi diritti, puoi contattare il Titolare all'indirizzo email indicato.</p>
             </section>
           </div>
         </div>
@@ -415,28 +447,159 @@ const FinalCTA: React.FC = () => {
   );
 };
 
-const Footer: React.FC = () => {
-  const [showPrivacy, setShowPrivacy] = useState(false);
+// --- GDPR & Cookie Components ---
+
+const CookiePreferencesModal: React.FC<{
+  onClose: () => void;
+  onSave: (prefs: { analytics: boolean }) => void;
+}> = ({ onClose, onSave }) => {
+  const [analyticsEnabled, setAnalyticsEnabled] = useState(false);
+
+  const handleSave = () => {
+    onSave({ analytics: analyticsEnabled });
+    onClose();
+  };
 
   return (
-    <>
-      <footer className="py-12 px-6 border-t border-white/5 bg-[#0a0a0a]">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-          <LogoBrand size="sm" />
-          <p className="text-sm text-gray-600 order-3 md:order-2">© {new Date().getFullYear()} AIXUM. All rights reserved.</p>
-          <div className="flex gap-6 text-sm text-gray-500 order-2 md:order-3">
-            <button onClick={() => setShowPrivacy(true)} className="hover:text-[#D4AF37] cursor-pointer">Privacy</button>
-            
+    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-6">
+      <div className="absolute inset-0 bg-black/90 backdrop-blur-xl" onClick={onClose} />
+      <div className="relative w-full max-w-2xl glass-card gold-border rounded-[32px] overflow-hidden">
+        <div className="p-8 md:p-12">
+          <h3 className="text-2xl font-display font-bold mb-4">Preferenze Cookie</h3>
+          <p className="text-gray-400 mb-8">
+            Per offrirti la migliore esperienza possibile, utilizziamo i cookie. Seleziona le tue preferenze qui sotto. Puoi modificarle in qualsiasi momento.
+          </p>
+
+          <div className="space-y-6">
+            <div className="p-6 rounded-2xl bg-white/5 border border-white/10">
+              <div className="flex justify-between items-center">
+                <div>
+                  <h4 className="font-bold text-white flex items-center gap-2">
+                    <ShieldCheck size={18} className="text-[#D4AF37]" /> Cookie Strettamente Necessari
+                  </h4>
+                  <p className="text-sm text-gray-500 mt-1">Sempre attivi. Questi cookie sono essenziali per il funzionamento del sito.</p>
+                </div>
+                <div className="w-12 h-6 flex items-center rounded-full bg-green-500/50 p-1">
+                  <div className="w-4 h-4 rounded-full bg-white shadow-md"></div>
+                </div>
+              </div>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-white/5 border border-white/10">
+               <div className="flex justify-between items-center">
+                <div>
+                  <h4 className="font-bold text-white flex items-center gap-2">
+                    <BarChartHorizontal size={18} className="text-[#D4AF37]" /> Cookie Analitici
+                  </h4>
+                  <p className="text-sm text-gray-500 mt-1">Ci aiutano a capire come usi il sito per migliorarlo.</p>
+                </div>
+                 <button
+                   role="switch"
+                   aria-checked={analyticsEnabled}
+                   onClick={() => setAnalyticsEnabled(!analyticsEnabled)}
+                   className={`${
+                     analyticsEnabled ? 'bg-green-500' : 'bg-gray-600'
+                   } relative inline-flex h-6 w-11 items-center rounded-full transition-colors`}
+                 >
+                   <span
+                     className={`${
+                       analyticsEnabled ? 'translate-x-6' : 'translate-x-1'
+                     } inline-block h-4 w-4 transform rounded-full bg-white transition-transform`}
+                   />
+                 </button>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-10 flex flex-col sm:flex-row gap-4">
+            <button onClick={handleSave} className="w-full px-8 py-4 gold-gradient text-black rounded-xl font-bold gold-glow">
+              Salva Preferenze
+            </button>
+            <button onClick={onClose} className="w-full px-8 py-4 glass-card gold-border rounded-xl font-bold text-lg hover:bg-white/5">
+              Chiudi
+            </button>
           </div>
         </div>
-      </footer>
+      </div>
+    </div>
+  );
+};
 
-      {showPrivacy && <PrivacyModal onClose={() => setShowPrivacy(false)} />}
-    </>
+
+const CookieConsentBanner: React.FC<{
+  onAccept: () => void;
+  onReject: () => void;
+  onCustomize: () => void;
+}> = ({ onAccept, onReject, onCustomize }) => {
+  return (
+    <div className="fixed bottom-0 left-0 right-0 z-[90] p-6">
+       <div className="max-w-4xl mx-auto glass-card gold-border p-6 rounded-2xl flex flex-col md:flex-row items-center gap-6">
+          <p className="text-sm text-gray-300 flex-grow">
+            Questo sito utilizza cookie per migliorare la tua esperienza. Rispettiamo la tua privacy e ti diamo il pieno controllo su quali cookie facoltativi abilitare.
+          </p>
+          <div className="flex items-center gap-4 flex-shrink-0 w-full md:w-auto">
+            <button onClick={onReject} className="w-full md:w-auto px-6 py-3 glass-card gold-border rounded-xl font-bold hover:bg-white/5 transition-all">
+              Rifiuta Tutti
+            </button>
+            <button onClick={onAccept} className="w-full md:w-auto px-6 py-3 gold-gradient text-black rounded-xl font-bold gold-glow transition-all">
+              Accetta Tutti
+            </button>
+          </div>
+          <button onClick={onCustomize} className="text-xs text-gray-500 hover:text-white underline whitespace-nowrap">
+            Personalizza
+          </button>
+       </div>
+    </div>
+  );
+};
+
+
+const Footer: React.FC<{ onPrivacyClick: () => void; onCookiePrefsClick: () => void; }> = ({ onPrivacyClick, onCookiePrefsClick }) => {
+  return (
+    <footer className="py-12 px-6 border-t border-white/5 bg-[#0a0a0a]">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+        <LogoBrand size="sm" />
+        <p className="text-sm text-gray-600 order-3 md:order-2">© {new Date().getFullYear()} AIXUM. All rights reserved.</p>
+        <div className="flex gap-6 text-sm text-gray-500 order-2 md:order-3">
+          <button onClick={onPrivacyClick} className="hover:text-[#D4AF37] cursor-pointer">Privacy Policy</button>
+          <button onClick={onCookiePrefsClick} className="hover:text-[#D4AF37] cursor-pointer">Preferenze Cookie</button>
+        </div>
+      </div>
+    </footer>
   );
 };
 
 const App: React.FC = () => {
+  const [showPrivacy, setShowPrivacy] = useState(false);
+  const [showCookiePrefs, setShowCookiePrefs] = useState(false);
+  const [cookieConsent, setCookieConsent] = useState<'pending' | 'accepted' | 'rejected' | 'custom'>('pending');
+
+  useEffect(() => {
+    const consent = localStorage.getItem('cookieConsent');
+    if (consent) {
+      setCookieConsent(consent as any);
+    }
+  }, []);
+
+  const handleAcceptAll = () => {
+    localStorage.setItem('cookieConsent', 'accepted');
+    localStorage.setItem('cookiePreferences', JSON.stringify({ analytics: true }));
+    setCookieConsent('accepted');
+  };
+
+  const handleRejectAll = () => {
+    localStorage.setItem('cookieConsent', 'rejected');
+    localStorage.setItem('cookiePreferences', JSON.stringify({ analytics: false }));
+    setCookieConsent('rejected');
+  };
+
+  const handleSavePreferences = (prefs: { analytics: boolean }) => {
+    localStorage.setItem('cookieConsent', 'custom');
+    localStorage.setItem('cookiePreferences', JSON.stringify(prefs));
+    setCookieConsent('custom');
+    setShowCookiePrefs(false);
+  };
+  
   return (
     <div className="min-h-screen">
       <Header />
@@ -447,7 +610,18 @@ const App: React.FC = () => {
         <AboutMe />
         <FinalCTA />
       </main>
-      <Footer />
+      <Footer onPrivacyClick={() => setShowPrivacy(true)} onCookiePrefsClick={() => setShowCookiePrefs(true)} />
+
+      {showPrivacy && <PrivacyModal onClose={() => setShowPrivacy(false)} />}
+      {showCookiePrefs && <CookiePreferencesModal onClose={() => setShowCookiePrefs(false)} onSave={handleSavePreferences} />}
+      
+      {cookieConsent === 'pending' && (
+        <CookieConsentBanner 
+          onAccept={handleAcceptAll}
+          onReject={handleRejectAll}
+          onCustomize={() => setShowCookiePrefs(true)}
+        />
+      )}
     </div>
   );
 };
