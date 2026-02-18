@@ -57,17 +57,19 @@ const Header: React.FC = () => {
 // --- Hero Section ---
 const Hero: React.FC = () => {
   return (
-    <section className="relative pt-40 pb-20 px-6 overflow-hidden">
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#D4AF37]/5 rounded-full blur-[120px] -z-10 translate-x-1/2 -translate-y-1/2" />
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#F9A602]/5 rounded-full blur-[120px] -z-10 -translate-x-1/2 translate-y-1/2" />
+    <section className="relative pt-40 pb-20 px-6">
+      <div className="absolute inset-0 -z-10 overflow-hidden">
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#D4AF37]/5 rounded-full blur-[120px] translate-x-1/2 -translate-y-1/2" />
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#F9A602]/5 rounded-full blur-[120px] -translate-x-1/2 translate-y-1/2" />
+      </div>
       
       <div className="max-w-5xl mx-auto text-center">
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card gold-border text-[#D4AF37] text-xs font-bold uppercase tracking-widest mb-8">
           <Zap size={14} /> Leadership AI per il Business
         </div>
-        <h1 className="text-5xl md:text-7xl font-display font-extrabold mb-8 leading-[1.1]">
+        <h1 className="text-4xl sm:text-5xl md:text-7xl font-display font-extrabold mb-8 leading-[1.1]">
           Scala la tua PMI con l'AI:<br />
-          <span className="gold-text-gradient italic">Risultati Concreti, <br />In Poco Tempo.</span>
+          <span className="gold-text-gradient italic">Risultati Concreti, In Poco Tempo.</span>
         </h1>
         <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
           Trasformiamo processi obsoleti in vantaggi competitivi misurabili. Percorsi formativi sull'AI progettati esclusivamente per il tessuto imprenditoriale italiano.
@@ -385,9 +387,13 @@ const PainPoints: React.FC = () => {
   return (
     <section className="py-24 px-6 bg-[#0d0d0d]" id="soluzione">
       <div className="max-w-7xl mx-auto">
-        <div className="mb-16">
-          <h2 className="text-3xl md:text-5xl font-display font-bold mb-6">L'inerzia tecnologica è il <br/><span className="gold-text-gradient">vero costo</span> della tua azienda.</h2>
-          <p className="text-gray-400 max-w-xl">Mentre i competitor adottano strumenti di automazione intelligenti, la tua azienda rischia di rimanere legata a flussi di lavoro del decennio scorso.</p>
+        <div className="mb-16 text-center">
+          <h2 className="text-3xl md:text-5xl font-display font-bold mb-6">
+            L'inerzia tecnologica è<br/>
+            il <span className="gold-text-gradient">vero costo</span><br/>
+            della tua azienda.
+          </h2>
+          <p className="text-gray-400 max-w-xl mx-auto">Mentre i competitor adottano strumenti di automazione intelligenti, la tua azienda rischia di rimanere legata a flussi di lavoro del decennio scorso.</p>
         </div>
         <div className="grid md:grid-cols-3 gap-8">
           {[
