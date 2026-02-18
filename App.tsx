@@ -70,7 +70,7 @@ const Hero: React.FC = () => {
           <Zap size={14} /> Leadership AI per il Business
         </div>
         <h1 className="font-display font-extrabold mb-8 leading-tight">
-          <span className="block text-4xl sm:text-5xl md:text-5xl text-white">Scala la tua PMI con l'AI:</span>
+          <span className="block text-4xl sm:text-5xl md:text-5xl text-white">Migliora la tua PMI con l'AI:</span>
           <span className="block text-5xl sm:text-6xl md:text-7xl gold-text-gradient italic mt-2">Risultati Concreti, <br />In Poco Tempo.</span>
         </h1>
         <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
