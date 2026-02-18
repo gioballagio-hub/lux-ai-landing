@@ -39,6 +39,7 @@ const Header: React.FC = () => {
         <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-400">
           <a href="#soluzione" className="hover:text-[#D4AF37] transition-colors">Soluzione</a>
           <a href="#moduli" className="hover:text-[#D4AF37] transition-colors">Corsi</a>
+          <a href="#chi-sono" className="hover:text-[#D4AF37] transition-colors">Chi sono</a>
           <a 
             href={CALENDLY_URL} 
             target="_blank" 
@@ -241,9 +242,6 @@ const PrivacyModal: React.FC<{ onClose: () => void }> = ({ onClose }) => {
   );
 };
 
-
-
-
 // --- Course Modules ---
 const Modules: React.FC = () => {
   const [selectedCourse, setSelectedCourse] = useState<Course | null>(null);
@@ -347,6 +345,42 @@ const Modules: React.FC = () => {
   );
 };
 
+// --- About Me Section ---
+const AboutMe: React.FC = () => {
+  return (
+    <section id="chi-sono" className="py-24 px-6 bg-[#0a0a0a]">
+      <div className="max-w-7xl mx-auto grid md:grid-cols-5 gap-12 md:gap-20 items-center">
+        <div className="md:col-span-2">
+          <img
+            src="/giovanni-ballardin.jpg"
+            alt="Giovanni Ballardin, fondatore di AIXUM"
+            className="rounded-3xl w-full h-auto object-cover aspect-[4/5] gold-border shadow-2xl shadow-black/30"
+          />
+        </div>
+        <div className="md:col-span-3">
+          <h2 className="text-4xl md:text-5xl font-display font-bold mb-8">
+            Chi <span className="gold-text-gradient">sono</span>
+          </h2>
+          <div className="space-y-6 text-lg text-gray-400 leading-relaxed font-light">
+            <p>
+              Sono Giovanni Ballardin, Ingegnere Gestionale con esperienza in consulenza aziendale, ottimizzazione dei processi e formazione professionale.
+            </p>
+            <p>
+              Ho affiancato imprese di diversi settori — dalla distribuzione alla manifattura — nell'analisi operativa, nella pianificazione strategica e nell'introduzione di strumenti digitali. Svolgo attività didattica come docente presso enti formativi accreditati, tra cui l'Istituto Veneto per il Lavoro e Confartigianato.
+            </p>
+            <p>
+              Negli ultimi anni ho approfondito in modo sistematico l'applicazione dell'Intelligenza Artificiale in contesti aziendali concreti, con un focus sulle PMI italiane: non come tecnologia fine a sé stessa, ma come leva per <span className="text-white font-medium">semplificare processi, ridurre sprechi e liberare tempo</span> per le attività ad alto valore aggiunto.
+            </p>
+            <p className="text-white font-medium border-l-4 border-[#D4AF37] pl-6 py-2 italic">
+              AIXUM nasce da questa doppia esperienza: la solidità metodologica dell'ingegneria gestionale unita a una conoscenza pratica degli strumenti AI oggi accessibili a qualsiasi impresa.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
 const PainPoints: React.FC = () => {
   return (
     <section className="py-24 px-6 bg-[#0d0d0d]" id="soluzione">
@@ -402,7 +436,7 @@ const Footer: React.FC = () => {
           <p className="text-sm text-gray-600 order-3 md:order-2">© {new Date().getFullYear()} AIXUM. All rights reserved.</p>
           <div className="flex gap-6 text-sm text-gray-500 order-2 md:order-3">
             <button onClick={() => setShowPrivacy(true)} className="hover:text-[#D4AF37] cursor-pointer">Privacy</button>
-            <a href="https://linkedin.com/company/aixum" target="_blank" rel="noopener noreferrer" className="hover:text-[#D4AF37]">LinkedIn</a>
+            
           </div>
         </div>
       </footer>
@@ -420,6 +454,7 @@ const App: React.FC = () => {
         <Hero />
         <PainPoints />
         <Modules />
+        <AboutMe />
         <FinalCTA />
       </main>
       <Footer />
