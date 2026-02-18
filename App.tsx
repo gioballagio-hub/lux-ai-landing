@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { 
   TrendingUp, 
   Clock, 
@@ -12,83 +12,45 @@ import {
   Bot,
   X,
   Target,
-  Layers,
-  Menu
+  Layers
 } from 'lucide-react';
 
 // URL di conversione centralizzato
 const CALENDLY_URL = "https://calendar.app.google/uokojpnrms98Kerc6";
 
+// Nota: Sostituisci questo URL con il percorso del tuo file logo se caricato localmente
+// Per ora usiamo una rappresentazione stilizzata coerente con l'immagine fornita
 const LogoBrand: React.FC<{ size?: 'sm' | 'md' }> = ({ size = 'md' }) => (
-  <a href="#" className="flex items-center">
+  <div className="flex items-center mt-6">
     <img 
       src="/logo_AIXUM_senza_sfondo.png" 
       alt="AIXUM - Italian AI Solutions"
-      className={`${size === 'sm' ? 'h-12' : 'h-16'} w-auto object-contain`}
+      className={`${size === 'sm' ? 'h-26 md:h-28' : 'h-28 md:h-40'} w-auto object-contain`}
     />
-  </a>
+  </div>
 );
 
 // --- Header Component ---
 const Header: React.FC = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  useEffect(() => {
-    if (isMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
-    return () => {
-      document.body.style.overflow = 'unset';
-    };
-  }, [isMenuOpen]);
-
   return (
-    <>
-      <header className="fixed top-0 left-0 right-0 z-50 bg-[#0a0a0a]/80 backdrop-blur-md border-b border-white/5">
-        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-          <LogoBrand />
-          <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-400">
-            <a href="#soluzione" className="hover:text-[#D4AF37] transition-colors">Soluzione</a>
-            <a href="#moduli" className="hover:text-[#D4AF37] transition-colors">Corsi</a>
-            <a href="#chi-sono" className="hover:text-[#D4AF37] transition-colors">Chi sono</a>
-            <a 
-              href={CALENDLY_URL} 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="px-5 py-2.5 gold-gradient text-black rounded-full font-bold gold-glow transition-all"
-            >
-              Prenota Consulenza
-            </a>
-          </nav>
-          <div className="md:hidden">
-            <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="p-2 z-50 relative text-white">
-              {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
-            </button>
-          </div>
-        </div>
-      </header>
-
-      {/* Mobile Menu Overlay */}
-      <div className={`md:hidden fixed inset-0 bg-[#0a0a0a] z-40 transform transition-transform duration-300 ease-in-out ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
-        <div className="flex flex-col items-center justify-center h-full pt-20">
-          <nav className="flex flex-col items-center gap-y-8 text-2xl text-white">
-            <a href="#soluzione" onClick={() => setIsMenuOpen(false)} className="hover:text-[#D4AF37] transition-colors">Soluzione</a>
-            <a href="#moduli" onClick={() => setIsMenuOpen(false)} className="hover:text-[#D4AF37] transition-colors">Corsi</a>
-            <a href="#chi-sono" onClick={() => setIsMenuOpen(false)} className="hover:text-[#D4AF37] transition-colors">Chi sono</a>
-            <a 
-              href={CALENDLY_URL} 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="mt-8 px-8 py-4 gold-gradient text-black rounded-full font-bold gold-glow transition-all text-xl"
-            >
-              Prenota Consulenza
-            </a>
-          </nav>
-        </div>
+    <header className="fixed top-0 left-0 right-0 z-50 bg-[#0a0a0a]/80 backdrop-blur-md border-b border-white/5">
+      <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+        <LogoBrand />
+        <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-400">
+          <a href="#soluzione" className="hover:text-[#D4AF37] transition-colors">Soluzione</a>
+          <a href="#moduli" className="hover:text-[#D4AF37] transition-colors">Corsi</a>
+          <a href="#chi-sono" className="hover:text-[#D4AF37] transition-colors">Chi sono</a>
+          <a 
+            href={CALENDLY_URL} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="px-5 py-2.5 gold-gradient text-black rounded-full font-bold gold-glow transition-all"
+          >
+            Prenota Consulenza
+          </a>
+        </nav>
       </div>
-    </>
+    </header>
   );
 };
 
@@ -103,7 +65,7 @@ const Hero: React.FC = () => {
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card gold-border text-[#D4AF37] text-xs font-bold uppercase tracking-widest mb-8">
           <Zap size={14} /> Leadership AI per il Business
         </div>
-        <h1 className="text-4xl sm:text-5xl md:text-7xl font-display font-extrabold mb-8 leading-[1.1]">
+        <h1 className="text-5xl md:text-7xl font-display font-extrabold mb-8 leading-[1.1]">
           Scala la tua PMI con l'AI:<br />
           <span className="gold-text-gradient italic">Risultati Concreti, <br />In Poco Tempo.</span>
         </h1>
@@ -395,7 +357,7 @@ const AboutMe: React.FC = () => {
             className="rounded-3xl w-full h-auto object-cover aspect-[4/5] gold-border shadow-2xl shadow-black/30"
           />
         </div>
-        <div className="md:col-span-3 text-center md:text-left">
+        <div className="md:col-span-3">
           <h2 className="text-4xl md:text-5xl font-display font-bold mb-8">
             Chi <span className="gold-text-gradient">sono</span>
           </h2>
@@ -423,9 +385,9 @@ const PainPoints: React.FC = () => {
   return (
     <section className="py-24 px-6 bg-[#0d0d0d]" id="soluzione">
       <div className="max-w-7xl mx-auto">
-        <div className="mb-16 text-center md:text-left">
+        <div className="mb-16">
           <h2 className="text-3xl md:text-5xl font-display font-bold mb-6">L'inerzia tecnologica è il <br/><span className="gold-text-gradient">vero costo</span> della tua azienda.</h2>
-          <p className="text-gray-400 max-w-xl mx-auto md:mx-0">Mentre i competitor adottano strumenti di automazione intelligenti, la tua azienda rischia di rimanere legata a flussi di lavoro del decennio scorso.</p>
+          <p className="text-gray-400 max-w-xl">Mentre i competitor adottano strumenti di automazione intelligenti, la tua azienda rischia di rimanere legata a flussi di lavoro del decennio scorso.</p>
         </div>
         <div className="grid md:grid-cols-3 gap-8">
           {[
