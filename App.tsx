@@ -202,7 +202,7 @@ const PrivacyModal: React.FC<{ onClose: () => void }> = ({ onClose }) => {
           <div className="space-y-8 text-gray-400 leading-relaxed">
             <section>
               <h3 className="text-white font-bold text-xl mb-3">Titolare del Trattamento dei Dati</h3>
-              <p>AIXUM di [Nome Cognome Titolare], con sede in [Indirizzo Sede Legale], P.IVA [Partita IVA], email: [Indirizzo Email Contatto].</p>
+              <p>Il brand AIXUM è un servizio offerto da GIBA Solutions di Giovanni Ballardin. Il Titolare del Trattamento è Giovanni Ballardin, con sede legale in VIA VESPUCCI AMERIGO N. 82, 35030 - Selvazzano Dentro (PD) - IT, P.IVA: IT05606970282, email: gioballardin@gmail.com.</p>
             </section>
 
             <section>
@@ -453,7 +453,19 @@ const CookiePreferencesModal: React.FC<{
   onClose: () => void;
   onSave: (prefs: { analytics: boolean }) => void;
 }> = ({ onClose, onSave }) => {
-  const [analyticsEnabled, setAnalyticsEnabled] = useState(false);
+  const [analyticsEnabled, setAnalyticsEnabled] = useState(() => {
+    const savedPrefsJSON = localStorage.getItem('cookiePreferences');
+    if (savedPrefsJSON) {
+      try {
+        const savedPrefs = JSON.parse(savedPrefsJSON);
+        return !!savedPrefs.analytics;
+      } catch (e) {
+        console.error("Failed to parse cookie preferences:", e);
+        return false;
+      }
+    }
+    return false;
+  });
 
   const handleSave = () => {
     onSave({ analytics: analyticsEnabled });
