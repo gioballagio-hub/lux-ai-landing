@@ -18,7 +18,7 @@ import {
 } from 'lucide-react';
 
 // URL di conversione centralizzato
-const CALENDLY_URL = "https://calendar.app.google/uokojpnrms98Kerc6";
+const CALENDAR_URL = "https://calendar.app.google/uokojpnrms98Kerc6";
 
 // Nota: Sostituisci questo URL con il percorso del tuo file logo se caricato localmente
 // Per ora usiamo una rappresentazione stilizzata coerente con l'immagine fornita
@@ -43,7 +43,7 @@ const Header: React.FC = () => {
           <a href="#moduli" className="hover:text-[#D4AF37] transition-colors">Corsi</a>
           <a href="#chi-sono" className="hover:text-[#D4AF37] transition-colors">Chi sono</a>
           <a 
-            href={CALENDLY_URL} 
+            href={CALENDAR_URL} 
             target="_blank" 
             rel="noopener noreferrer"
             className="px-5 py-2.5 gold-gradient text-black rounded-full font-bold gold-glow transition-all"
@@ -165,7 +165,7 @@ const CourseModal: React.FC<{ course: Course; onClose: () => void }> = ({ course
               <p className="text-gray-500 text-sm">Parla con un nostro esperto per personalizzare questo modulo.</p>
             </div>
             <a 
-              href={CALENDLY_URL}
+              href={CALENDAR_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="w-full md:w-auto px-8 py-4 gold-gradient text-black rounded-xl font-bold gold-glow flex items-center justify-center gap-2"
@@ -202,7 +202,7 @@ const PrivacyModal: React.FC<{ onClose: () => void }> = ({ onClose }) => {
           <div className="space-y-8 text-gray-400 leading-relaxed">
             <section>
               <h3 className="text-white font-bold text-xl mb-3">Titolare del Trattamento dei Dati</h3>
-              <p>Il brand AIXUM è un servizio offerto da GIBA Solutions di Giovanni Ballardin. Il Titolare del Trattamento è Giovanni Ballardin, con sede legale in VIA VESPUCCI AMERIGO N. 82, 35030 - Selvazzano Dentro (PD) - IT, P.IVA: IT05606970282, email: gioballardin@gmail.com.</p>
+              <p>Il brand AIXUM è un servizio offerto da GIBA Solutions di Giovanni Ballardin. Il Titolare del Trattamento è Giovanni Ballardin, con sede legale in VIA VESPUCCI AMERIGO N. 82, 35030 - Selvazzano Dentro (PD) - IT, P.IVA: IT05606970282, email: info@aixum.it.</p>
             </section>
 
             <section>
@@ -210,7 +210,7 @@ const PrivacyModal: React.FC<{ onClose: () => void }> = ({ onClose }) => {
               <p>Raccogliamo dati personali per fornire e migliorare i nostri servizi. Le tipologie di dati raccolti includono:</p>
               <ul className="list-disc pl-6 mt-4 space-y-2">
                 <li><strong className="text-gray-300">Dati di Navigazione:</strong> Indirizzi IP, tipo di browser, orari di accesso e altri parametri relativi al sistema operativo e all'ambiente informatico dell'utente, raccolti tramite cookie o altre tecnologie di tracciamento.</li>
-                <li><strong className="text-gray-300">Dati forniti volontariamente dall'utente:</strong> Nome, cognome, indirizzo email, numero di telefono e informazioni aziendali fornite tramite servizi di terze parti come Calendly per la prenotazione di consulenze.</li>
+                <li><strong className="text-gray-300">Dati forniti volontariamente dall'utente:</strong> Nome, cognome, indirizzo email, numero di telefono e informazioni aziendali fornite tramite servizi di terze parti come Google Calendar per la prenotazione di consulenze.</li>
               </ul>
             </section>
             
@@ -231,7 +231,7 @@ const PrivacyModal: React.FC<{ onClose: () => void }> = ({ onClose }) => {
 
             <section>
               <h3 className="text-white font-bold text-xl mb-3">Comunicazione dei Dati e Terze Parti</h3>
-              <p>I tuoi dati non saranno diffusi. Potranno essere comunicati a fornitori di servizi esterni (es. Calendly per le prenotazioni, fornitori di servizi tecnici, hosting provider) nominati, se necessario, Responsabili del Trattamento. L'elenco aggiornato dei Responsabili potrà sempre essere richiesto al Titolare del Trattamento.</p>
+              <p>I tuoi dati non saranno diffusi. Potranno essere comunicati a fornitori di servizi esterni (es. Calendar per le prenotazioni, fornitori di servizi tecnici, hosting provider) nominati, se necessario, Responsabili del Trattamento. L'elenco aggiornato dei Responsabili potrà sempre essere richiesto al Titolare del Trattamento.</p>
             </section>
             
             <section>
@@ -435,7 +435,7 @@ const FinalCTA: React.FC = () => {
       <div className="max-w-4xl mx-auto glass-card gold-border p-12 md:p-20 rounded-[40px] text-center">
         <h2 className="text-3xl md:text-5xl font-display font-bold mb-8">Pronto a trasformare la tua azienda?</h2>
         <a 
-          href={CALENDLY_URL}
+          href={CALENDAR_URL}
           target="_blank"
           rel="noopener noreferrer"
           className="px-12 py-6 gold-gradient text-black rounded-2xl font-extrabold text-xl gold-glow hover:scale-105 transition-all flex items-center justify-center gap-3 mx-auto max-w-md"
@@ -570,7 +570,7 @@ const Footer: React.FC<{ onPrivacyClick: () => void; onCookiePrefsClick: () => v
   return (
     <footer className="py-12 px-6 border-t border-white/5 bg-[#0a0a0a]">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-        <LogoBrand size="sm" />
+        <LogoBrand size="md" />
         <p className="text-sm text-gray-600 order-3 md:order-2">© {new Date().getFullYear()} AIXUM. All rights reserved.</p>
         <div className="flex gap-6 text-sm text-gray-500 order-2 md:order-3">
           <button onClick={onPrivacyClick} className="hover:text-[#D4AF37] cursor-pointer">Privacy Policy</button>
