@@ -27,7 +27,7 @@ const LogoBrand: React.FC<{ size?: 'sm' | 'md' }> = ({ size = 'md' }) => (
     <img 
       src="/logo_AIXUM_senza_sfondo.png" 
       alt="AIXUM - Italian AI Solutions"
-      className={`${size === 'sm' ? 'h-26 md:h-28' : 'h-28 md:h-40'} w-auto object-contain`}
+      className={`${size === 'sm' ? 'h-28 md:h-32' : 'h-28 md:h-40'} w-auto object-contain`}
     />
   </div>
 );
@@ -71,7 +71,7 @@ const Hero: React.FC = () => {
         </div>
         <h1 className="font-display font-extrabold mb-8 leading-tight">
           <span className="block text-4xl sm:text-5xl md:text-5xl text-white">Scala la tua PMI con l'AI:</span>
-          <span className="block text-5xl sm:text-6xl md:text-7xl gold-text-gradient italic mt-2">Risultati Concreti, In Poco Tempo.</span>
+          <span className="block text-5xl sm:text-6xl md:text-7xl gold-text-gradient italic mt-2">Risultati Concreti, <br />In Poco Tempo.</span>
         </h1>
         <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
           Trasformiamo processi obsoleti in vantaggi competitivi misurabili. Percorsi formativi sull'AI progettati esclusivamente per il tessuto imprenditoriale italiano.
