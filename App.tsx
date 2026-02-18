@@ -65,10 +65,10 @@ const Hero: React.FC = () => {
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card gold-border text-[#D4AF37] text-xs font-bold uppercase tracking-widest mb-8">
           <Zap size={14} /> Leadership AI per il Business
         </div>
-       <h1 className="text-4xl sm:text-5xl lg:text-7xl font-display font-extrabold mb-8 leading-[1.1]">
-  Scala la tua PMI con l'AI:{" "}
-  <span className="gold-text-gradient italic">Risultati Concreti, In Poco Tempo.</span>
-</h1>
+        <h1 className="text-5xl md:text-7xl font-display font-extrabold mb-8 leading-[1.1]">
+          Scala la tua PMI con l'AI:<br />
+          <span className="gold-text-gradient italic">Risultati Concreti, <br />In Poco Tempo.</span>
+        </h1>
         <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
           Trasformiamo processi obsoleti in vantaggi competitivi misurabili. Percorsi formativi sull'AI progettati esclusivamente per il tessuto imprenditoriale italiano.
         </p>
