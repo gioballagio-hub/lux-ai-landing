@@ -57,7 +57,7 @@ const Header: React.FC = () => {
 // --- Hero Section ---
 const Hero: React.FC = () => {
   return (
-    <section className="relative pt-40 pb-20 px-6">
+    <section className="relative pt-40 pb-28 px-6">
       <div className="absolute inset-0 -z-10 overflow-hidden">
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#D4AF37]/5 rounded-full blur-[120px] translate-x-1/2 -translate-y-1/2" />
         <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#F9A602]/5 rounded-full blur-[120px] -translate-x-1/2 translate-y-1/2" />
@@ -67,29 +67,13 @@ const Hero: React.FC = () => {
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card gold-border text-[#D4AF37] text-xs font-bold uppercase tracking-widest mb-8">
           <Zap size={14} /> Leadership AI per il Business
         </div>
-        <h1 className="text-4xl sm:text-5xl md:text-7xl font-display font-extrabold mb-8 leading-[1.1]">
-          Scala la tua PMI con l'AI:<br />
-          <span className="gold-text-gradient italic">Risultati Concreti, In Poco Tempo.</span>
+        <h1 className="font-display font-extrabold mb-8 leading-tight">
+          <span className="block text-4xl sm:text-5xl md:text-5xl text-white">Scala la tua PMI con l'AI:</span>
+          <span className="block text-5xl sm:text-6xl md:text-7xl gold-text-gradient italic mt-2">Risultati Concreti, In Poco Tempo.</span>
         </h1>
-        <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+        <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
           Trasformiamo processi obsoleti in vantaggi competitivi misurabili. Percorsi formativi sull'AI progettati esclusivamente per il tessuto imprenditoriale italiano.
         </p>
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a 
-            href={CALENDLY_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full sm:w-auto px-10 py-5 gold-gradient text-black rounded-xl font-extrabold text-lg gold-glow transition-all flex items-center justify-center gap-3"
-          >
-            Prenota la tua Consulenza <ArrowRight size={20} />
-          </a>
-          <a 
-            href="#moduli"
-            className="w-full sm:w-auto px-10 py-5 glass-card gold-border rounded-xl font-bold text-lg hover:bg-white/5 transition-all flex items-center justify-center"
-          >
-            Scopri i Percorsi
-          </a>
-        </div>
       </div>
     </section>
   );
